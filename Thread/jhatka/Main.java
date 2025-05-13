@@ -124,7 +124,7 @@ class Producer implements Runnable {
     }
 }
 
-// Consumer using Runnable
+// Consumer 
 class Consumer implements Runnable {
     private BrokerServer broker;
     private String topic;
@@ -146,7 +146,7 @@ class Consumer implements Runnable {
                 offset = msg.getOffset() + 1;
             }
             try {
-                Thread.sleep(200); // simulate polling interval
+                Thread.sleep(200); 
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -155,13 +155,13 @@ class Consumer implements Runnable {
 }
 
 
-// Main method to simulate the threaded flow
+
 public class Main {
     public static void main(String[] args) {
         BrokerServer broker = new BrokerServer();
         broker.createTopic("test-topic", 2);
 
-        List<String> producerMessages = Arrays.asList("Hello", "Kafka", "Like", "Tool");
+        List<String> producerMessages = Arrays.asList("Hello", "Kafka", "Like", "Tool", "Shubhra");
 
         Thread producerThread = new Thread(new Producer(broker, "test-topic", 1, producerMessages));
         Thread consumerThread = new Thread(new Consumer(broker, "test-topic", 1, 0));
