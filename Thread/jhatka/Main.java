@@ -1,6 +1,7 @@
 package Thread.jhatka;
 
 import java.util.*;
+//kafka like message queue building 
 
 //craete the Model class for a Message
 
