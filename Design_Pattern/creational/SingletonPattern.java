@@ -31,11 +31,11 @@ class LazySingleton {
     }
 
     public void show() {
-        System.out.println("LazySingleton instance: " + this.hashCode());
+        System.out.println("NOT THREAD SAFE :: LazySingleton instance: " + this.hashCode());
     }
 }
 
-//Using syncronized : Thread Safe
+// 3. Using syncronized : Thread Safe
 
 class ThreadSafeSingleton {
 
@@ -51,15 +51,16 @@ class ThreadSafeSingleton {
     }
 
     public void show() {
-        System.out.println("ThreadSafeSingleton instance: " + this.hashCode());
+        System.out.println("THREAD SAFE :: ThreadSafeSingleton instance using syncronize: " + this.hashCode());
     }
 }
 
-//Bill Pugh Singleton pattern is the recomended pattern
+// 4.Bill Pugh Singleton pattern is the recomended pattern
 
 class BillPughSingleton {
 
     // Step 1: Private constructor
+
     private BillPughSingleton() {
         System.out.println("Instance created!");
     }
@@ -85,7 +86,36 @@ class BillPughSingleton {
 public class SingletonPattern {
 
     public static void main(String[] args) {
-        
+        //EagerSingletone calling
+        // EagerSingleton eagerSingleton1 = EagerSingleton.getInstance();
+        // EagerSingleton eagerSingleton2 = EagerSingleton.getInstance();
+        // eagerSingleton1.show();
+        // eagerSingleton2.show();
+
+        //Lazy Initialization (Not Thread Safe)
+        // LazySingleton lazySingleton1 = LazySingleton.getInstance();
+        // LazySingleton lazySingleton2 = LazySingleton.getInstance();
+        // lazySingleton1.show();
+        // lazySingleton2.show();
+
+        //Using syncronized : Thread Safe
+        // ThreadSafeSingleton threadSafeSingleton1 = ThreadSafeSingleton.getInstance();
+        // ThreadSafeSingleton threadSafeSingleton2 = ThreadSafeSingleton.getInstance();
+
+        // threadSafeSingleton1.show();
+        // threadSafeSingleton2.show();
+
+        //BILL PUGH SINGLETON
+        BillPughSingleton billPughSingleton1 = BillPughSingleton.getInstance();
+        BillPughSingleton billPughSingleton2 = BillPughSingleton.getInstance();
+
+        billPughSingleton1.show();
+        billPughSingleton2.show();
+
+
+
+
+
     }
     
 }
